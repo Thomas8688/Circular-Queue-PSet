@@ -43,7 +43,7 @@ class cirQueue:
         if not self.isEmpty():
 #The item being dequeued is taken using the head pointer
             item = self.__queue[self.__headP]
-#The item's position in the queue is set to the null value "-"
+#The item's position in the queue is reset to the null value "-"
             self.__queue[self.__headP] = "-"
             print (item, "has been Dequeued\n")
 #If this is the last item being dequeued, then the queue will reset (Allowing more values to be added again)
@@ -58,9 +58,9 @@ class cirQueue:
         else:
             print("Queue is Empty: No items to Dequeue\n")
 
-#Method to check if the queue is empty
+#Method to check if the queue is full
     def isFull(self):
-#Checks if the queue is full by seeing if the tailpointer is at the maximum index of the queue
+#Checks if the queue is full by seeing if the next index is the same as the head pointer (Showing that there are no free slots in the queue)
         if (self.__tailP + 1) % self.__size == self.__headP:
             return True
         else:
